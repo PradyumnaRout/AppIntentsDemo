@@ -24,9 +24,10 @@ import SwiftData
 struct CreateFeature: AppIntent {
     // MARK: - Properties
     
-    static var title: LocalizedStringResource = "Create Feature"
-    static var openAppWhenRun: Bool = false
-    
+    static var title: LocalizedStringResource = "Add New Feature"
+    // Optional: Show app UI when run from Siri
+    static var openAppWhenRun: Bool = true
+
     // MARK: - Parameters
     
     @Parameter(
@@ -47,6 +48,12 @@ struct CreateFeature: AppIntent {
     )
     var description: String
     
+    
+    // ✅ Suggested Siri phrase
+    static var suggestedInvocationPhrase: String? {
+        "Add New Feature"
+    }
+        
     
     // With Default Value
     /**
@@ -112,8 +119,8 @@ struct AppShortcuts: AppShortcutsProvider {
          */
         AppShortcut(
             intent: CreateFeature(),
-            phrases: ["Make a New \(.applicationName)"],        // Acess by using this in siri.
-            shortTitle: LocalizedStringResource(stringLiteral: "New Feature"),
+            phrases: ["Add New Feature"],        // Acess by using this in siri.
+            shortTitle: LocalizedStringResource(stringLiteral: "Add New Feature"),
             systemImageName: "apple.logo"
         )
     }
