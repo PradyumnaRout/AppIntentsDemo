@@ -75,7 +75,7 @@ struct CreateFeature: AppIntent {
     
     
     // MARK: - Summary
-    
+    // An interface for defining the visual representation of an app intent’s parameters.
     static var parameterSummary: some ParameterSummary {
 //        Summary("Create a new feature for the platform \(\.$platform)") // only ask for platform
         
